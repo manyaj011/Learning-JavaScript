@@ -111,3 +111,124 @@ console.log(Number("")); //to convert a string or boolean to number type
 console.log(parseFloat("3.14"));
 console.log(String(undefined)); // this will convert 500 to string 500  and undefined data type to string undefined
 //remember s ans n of string and number are capital
+console.log((500).toString()); //this will convert 500 to string but toString will not work on null and undefined
+console.log(Boolean("")); // this will return true and null undefined 0 '' NaN all return false when converted to boolean all else will return true even ' ' will return true
+
+//EQUALITY
+const var1 = null;
+const var2 = undefined;
+
+console.log(var1 == var2); //here js will convert string 10 to numneric 10 and
+console.log(var1 === var2); //=== equals to is more strict is compares value as well as datatype
+
+//CONDITIONAL STATEMETS
+const num = 0;
+if (num > 0) {
+  console.log("Number is Positive");
+} else if (num < 0) {
+  console.log("number is not positive");
+} else {
+  console.log("number is zero");
+}
+
+//if you have large no of choices with little code to execute in each case then switch case is preffered
+const color = "pink";
+switch (color) {
+  case "red":
+    console.log("color is red");
+    break;
+  case "black":
+    console.log("color is black");
+    break;
+  case "white":
+    console.log("color is white");
+    break;
+  default:
+    console.log("not a valid color");
+}
+
+//LOOPING CODE
+for (let i = 1; i <= 5; i++) {
+  console.log("iteration number " + i);
+}
+let i = 1;
+while (i <= 5) {
+  console.log("iteration number " + i);
+  i++;
+}
+console.log("do while loop");
+let j = 6;
+do {
+  console.log("initialiser number " + j);
+  j++;
+} while (j <= 5);
+
+//for of loop
+const numArray = [1, 2, 3, 4, 5];
+for (const num of numArray) {
+  console.log("iteration number " + num);
+}
+
+//FUNCTIONS
+function greet() {
+  console.log("Good Morning Manya");
+}
+greet();
+
+function greet(us) {
+  console.log("Good Morning " + us);
+}
+greet("Manya");
+greet("Tanvee");
+greet("Dakshit");
+//us is called paramenter and manya tanvee dakshit are called function arguments
+
+function add(a, b) {
+  console.log("the sum is " + (a + b));
+}
+
+add(5, 6);
+//ese likhne ke liye a+b ko bracket m likhna pdega vrna concatenate ho jaega
+
+function sum(a, b) {
+  return a + b;
+}
+
+const s = sum(5, 10);
+console.log(s);
+
+//alternative syntax to define function aclled arrow function
+//more consise way to write function
+const arrowSum = (a, b) => {
+  return a + b;
+};
+const s1 = arrowSum(10, 10);
+console.log(s1);
+
+//we have more consise statement with arrow function if you have one statement
+
+const arrowS = (a, b) => a + b;
+const s2 = arrowS(10, 10);
+console.log(s2);
+
+//SCOPE-accessibilty and visibility of variables
+const myname = "superman"; //this globally decalred value will not ovverwrite manya and batman
+if (true) {
+  const myname = "manya";
+  console.log(myname);
+}
+// console.log(myname); this will show error myname is not defined -->BLOCK SCOPE
+
+function test() {
+  const myname = "batman";
+  console.log(myname);
+}
+// console.log(myname); this will show error as not defined -->FUNCTION SCOPE
+test();
+console.log(myname);
+const mynum = 100; //globally declared value
+
+if (true) {
+  console.log(mynum);
+}
+// globally declared value can be accessed both in block and function
